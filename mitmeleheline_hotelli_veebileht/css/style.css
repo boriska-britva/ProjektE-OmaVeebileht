@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Celtic";
+    src: url(/Celticeels-K1pp.ttf);
+}
+
+@font-face {
+    font-family: "Sister";
+    src: url(/mitmeleheline_hotelli_veebileht/LoveYaLikeASister-myEa.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +15,7 @@
 }
 
 html, body {
-    font-family: 'Segoe UI', 'Tahoma', 'Verdana', sans-serif;
+    font-family: 'Sister;
     line-height: 1.7em;
     color: #333;
 }
@@ -153,7 +163,7 @@ html, body {
 
 #info .info-img {
     width: 50%;
-    background: url('/img/photo-1.jpg') no-repeat center center / cover;
+    background: url('/img/Media/Lisad/frozen-icicles-blue-ice-cave-600nw-2411902703.jpg') no-repeat center center / cover;
     min-height: 400px;
 }
 
@@ -324,7 +334,7 @@ footer {
 /* Testimonials */
 #testimonials {
     height: 600px;
-    background: url('/img/test-bg.jpg') no-repeat center center / cover;
+    background: url('/img/Media/Lisad/frozen-icicles-blue-ice-cave-600nw-2411902703.jpg') no-repeat center center / cover;
 }
 
 #testimonials h2 {

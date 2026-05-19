@@ -8,70 +8,309 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" media="screen and (max-width: 500px)" href="css/mobile.css">
     <title>Mark Hardikov Hobi</title>
+
+    <style>
+        /* ===== КАРУСЕЛЬ ===== */
+        .movies-section {
+            padding: 60px 0 80px;
+            background-image: url(/img/Media/Lisad/paperbg.jpg);
+            overflow: hidden;
+        }
+
+        .movies-section .badge-title {
+            display: inline-block;
+            margin: 0 0 40px 40px;
+        }
+
+        .carousel-viewport {
+            position: relative;
+            overflow: hidden;
+            cursor: grab;
+            user-select: none;
+            padding: 10px 0 20px;
+        }
+
+        .carousel-viewport:active { cursor: grabbing; }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0 40px;
+        }
+
+        /* Карточка — ширина задаётся из JS под размер экрана */
+        .movie-card {
+            flex: 0 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+        }
+
+        .movie-card img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .movie-card .card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: #fff;
+            padding: 30px 12px 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .movie-card:hover .card-overlay { opacity: 1; }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .carousel-btn:hover { background: rgba(170, 224, 157, 0.25); }
+        .carousel-btn.prev { left: 8px; }
+        .carousel-btn.next { right: 8px; }
+    </style>
 </head>
 
 <body>
-    <!-- Navigatsioon -->
-<header>
+    <!-- Навигация -->
+    <header>
         <nav id="navbar">
             <div class="container">
                 <div class="logo"><a href="index.html">markhardikov.ee</a></div>
-                
                 <ul>
                     <li><a href="index.html" class="nav-btn">Minu kohta</a></li>
-                    <li><a href="filmid.html">Filmid</a></li>
-                    <li><a href="sarjad.html">Sarjad</a></li>
+                    <li><a href="filmid.html">Soovitused</a></li>
+                    <li><a href="sarjad.html">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-        <!-- Showcase -->
-
-<div id="showcase">
-    <div class="container">
-        <div class="showcase-content">
-            <h1>Mark Hardikov</h1>
-            <p>Veebileht minu hobist</p>
+    <!-- Showcase -->
+    <div id="showcase">
+        <div class="container">
+            <div class="showcase-content">
+                <h1>Mark Hardikov</h1>
+                <p>Veebileht minu hobist</p>
+            </div>
         </div>
     </div>
-</div>
 
-<section id="about-me-section">
-    <div class="container">
+    <section id="about-me-section">
+        <div class="container"></div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="badge-title">Minu Kohta</h2>
+            <p>Ma olen 17 aastane õpilane ja üks minu hobist on filmide ja sarjade vaatamine vabal ajal</p>
         </div>
-</section>
+    </section>
 
-<section id="features">
-    <div class="container">
-        <h2 class="badge-title">Minu Kohta</h2>
-        <p>Ma olen 17 aastane õpilane</p>
-    </div>
-</section>
-
-<section id="filmid" class="movies-section">
-    <div class="container">
-        <h2 class="badge-title">Minu lemmikfilmid ja sarjad</h2>
-    </div>
-    
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <img src="/img/Media/Filmid/americanbeauty.jpg" alt="Film 1" class="movie-poster">
-            <img src="/img/Media/Filmid/bruge.jpg" alt="Film 2" class="movie-poster">
-            <img src="/img/Media/Filmid/evildead.jpg" alt="Film 3" class="movie-poster">
-            <img src="/img/Media/Filmid/gentelmen.jpg" alt="Film 4" class="movie-poster">
-            <img src="/img/Media/Filmid/manbitesdog.jpg" alt="Film 5" class="movie-poster">
-            <img src="/img/Media/Filmid/theguard.jpg" alt="Film 6" class="movie-poster">          
-
+    <!-- ===== КАРУСЕЛЬ С ФИЛЬМАМИ ===== -->
+    <section id="filmid" class="movies-section">
+        <div class="container">
+            <h2 class="badge-title">Minu lemmikfilmid ja sarjad</h2>
         </div>
-    </div>
-</section>
 
+        <div class="carousel-viewport" id="carousel">
+            <button class="carousel-btn prev" id="prevBtn">&#8249;</button>
 
-<footer>
-    <p>&copy; 2026 Mark Hardikov Kõik õigused kaitstud.</p>
-    </footer>>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/americanbeauty.jpg" alt="American Beauty">
+                    <div class="card-overlay">American Beauty</div>
+                </div>
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/bruge.jpg" alt="In Bruges">
+                    <div class="card-overlay">In Bruges</div>
+                </div>
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/evildead.jpg" alt="Evil Dead">
+                    <div class="card-overlay">Evil Dead</div>
+                </div>
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/gentelmen.jpg" alt="The Gentlemen">
+                    <div class="card-overlay">The Gentlemen</div>
+                </div>
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/manbitesdog.jpg" alt="Man Bites Dog">
+                    <div class="card-overlay">Man Bites Dog</div>
+                </div>
+                <div class="movie-card">
+                    <img src="/img/Media/Filmid/theguard.jpg" alt="The Guard">
+                    <div class="card-overlay">The Guard</div>
+                </div>
+            </div>
 
+            <button class="carousel-btn next" id="nextBtn">&#8250;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mark Hardikov Kõik õigused kaitstud.</p>
+    </footer>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const viewport = document.getElementById('carousel');
+        const GAP = 20;
+        const PADDING = 40;
+
+        // --- Авто-ширина карточек: заполняем экран без пустот ---
+        function calcCardWidth() {
+            const vw = viewport.clientWidth - PADDING * 2;
+            // Подбираем кол-во карточек так, чтобы они заполнили ширину
+            const ideal = 200;
+            const count = Math.max(1, Math.round((vw + GAP) / (ideal + GAP)));
+            return Math.floor((vw - GAP * (count - 1)) / count);
+        }
+
+        function applyCardWidth() {
+            const w = calcCardWidth();
+            document.querySelectorAll('.movie-card').forEach(c => c.style.width = w + 'px');
+        }
+
+        // --- Бесконечная карусель: клонируем карточки ---
+        const origCards = Array.from(track.querySelectorAll('.movie-card'));
+        const CLONES = 3; // сколько копий с каждой стороны
+
+        function buildInfinite() {
+            // Удаляем старые клоны если есть
+            track.querySelectorAll('.clone').forEach(c => c.remove());
+
+            // Клоны в начало и конец
+            const before = [], after = [];
+            for (let i = 0; i < CLONES; i++) {
+                origCards.forEach(c => {
+                    const cl = c.cloneNode(true);
+                    cl.classList.add('clone');
+                    after.push(cl);
+                });
+                origCards.forEach(c => {
+                    const cl = c.cloneNode(true);
+                    cl.classList.add('clone');
+                    before.unshift(cl);
+                });
+            }
+            before.forEach(c => track.prepend(c));
+            after.forEach(c => track.append(c));
+        }
+
+        buildInfinite();
+        applyCardWidth();
+
+        // --- Смещение: стартуем сразу за первым набором клонов ---
+        function cardWidth() {
+            return (document.querySelector('.movie-card')?.offsetWidth || 200) + GAP;
+        }
+
+        function loopOffset() {
+            return CLONES * origCards.length * cardWidth();
+        }
+
+        let offset = 0;
+
+        function initOffset() {
+            offset = loopOffset();
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${offset}px)`;
+        }
+
+        initOffset();
+
+        // --- Навигация ---
+        function move(dir) {
+            offset += dir * cardWidth();
+            track.style.transition = 'transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            track.style.transform = `translateX(-${offset}px)`;
+        }
+
+        // После анимации — тихий прыжок на эквивалентную позицию
+        track.addEventListener('transitionend', () => {
+            const total = origCards.length * cardWidth();
+            const lo = loopOffset();
+            if (offset >= lo + total) {
+                offset -= total;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(-${offset}px)`;
+            } else if (offset < lo) {
+                offset += total;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => move(-1));
+        document.getElementById('nextBtn').addEventListener('click', () => move(1));
+
+        // --- Перетаскивание мышью ---
+        let isDragging = false, startX = 0, startOffset = 0;
+
+        viewport.addEventListener('mousedown', e => {
+            isDragging = true;
+            startX = e.clientX;
+            startOffset = offset;
+            track.style.transition = 'none';
+        });
+        window.addEventListener('mousemove', e => {
+            if (!isDragging) return;
+            offset = startOffset + (startX - e.clientX);
+            track.style.transform = `translateX(-${offset}px)`;
+        });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        // --- Свайп ---
+        viewport.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            startOffset = offset;
+            track.style.transition = 'none';
+        });
+        viewport.addEventListener('touchmove', e => {
+            offset = startOffset + (startX - e.touches[0].clientX);
+            track.style.transform = `translateX(-${offset}px)`;
+        });
+        viewport.addEventListener('touchend', () => {
+            track.style.transition = 'transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+
+        // --- Пересчёт при ресайзе ---
+        window.addEventListener('resize', () => {
+            applyCardWidth();
+            initOffset();
+        });
+    </script>
 </body>
 </html>
-
