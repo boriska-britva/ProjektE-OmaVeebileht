@@ -1,9 +1,4 @@
 @font-face {
-    font-family: "Celtic";
-    src: url(/Celticeels-K1pp.ttf);
-}
-
-@font-face {
     font-family: "Sister";
     src: url(/mitmeleheline_hotelli_veebileht/LoveYaLikeASister-myEa.ttf);
 }
@@ -15,14 +10,9 @@
 }
 
 html, body {
-    font-family: 'Sister;
-    line-height: 1.7em;
+    font-family: "Sister", sans-serif;
+    line-height: 2.5em;
     color: #333;
-}
-
-/* Primary color */
-.text-primary {
-    color: #aae09d;
 }
 
 /* Container */
@@ -33,12 +23,12 @@ html, body {
     overflow: auto;
 }
 
-/* --- НАВИГАЦИЯ (Navbar) --- */
+/* Navbar */
 #navbar {
-    background: #ffffff; /* Белый фон */
+    background: #ffffff; 
     color: #000000;
     padding: 15px 0; 
-    border-bottom: 1px solid #f4f4f4; /* Легкая серая линия снизу */
+    border-bottom: 1px solid #f4f4f4;
 }
 
 #navbar .container {
@@ -59,33 +49,29 @@ html, body {
     align-items: center; 
     margin: 0;
     padding: 0;
-    gap: 15px; /* Расстояние между кнопками */
+    gap: 12px; 
 }
 
-/* Обычное состояние для всех ссылок */
 #navbar ul li a {
     display: block;
     padding: 10px 20px;
-    color: #000000 !important; /* Черный цвет текста */
+    color: #000000 !important; 
     text-decoration: none;
     font-size: 1rem;
-    transition: all 0.2s ease; /* Плавность анимации */
+    transition: all 0.2s ease; 
     border-radius: 6px;
 }
 
-/* --- Более слабый HOVER при простом наведении --- */
 #navbar ul li a:hover {
-    background-color: #f2f2f2 !important; /* Мягкий серый фон */
+    background-color: #f2f2f2 !important; 
     color: #000000 !important;
 }
 
-/* --- АКТИВНАЯ ВКЛАДКА (Черная обводка/плашка) --- */
 #navbar ul li a.nav-btn {
-    background-color: #000000 !important; /* Черный фон */
-    color: #ffffff !important; /* Белый текст */
+    background-color: #000000 !important; 
+    color: #ffffff !important; 
 }
 
-/* Чтобы у активной вкладки при наведении ничего не мигало */
 #navbar ul li a.nav-btn:hover {
     background-color: #222222 !important; 
     color: #ffffff !important;
@@ -113,152 +99,23 @@ html, body {
     box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
 }
 
-/* Showcases */
-/* --- 1. ПЕРВЫЙ БЛОК (С гифкой на фоне) --- */
+/* Showcase */
 #showcase {
     background: url('/img/Media/Lisad/path.gif') no-repeat center center / cover;
-    min-height: 500px; /* Высоту можно менять по вкусу */
+    min-height: 500px;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* --- 2. ВТОРОЙ БЛОК (Розоватый фон с дорогой) --- */
-#info {
-    background: url('/img/Media/Lisad/paperbg.jpg') no-repeat center center / cover;
-    min-height: 500px;
-    padding: 60px 0;
-    color: #fff;
-    display: flex;
-    align-items: center;
-}
-
-/* --- 3. ТРЕТИЙ БЛОК (Текстура помятой бумаги) --- */
-#features {
-    background: url('/img/Media/Lisad/twin-peaks.png') no-repeat center center / cover;
-    min-height: 500px;
-    padding: 60px 0;
-    color: #fff;
-}
-
-/* Общий стиль для желтых плашек-заголовков (как на макете) */
-.badge-title {
-    display: inline-block;
-    background-color: #b3a125; /* Горчично-желтый цвет */
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-/* Info */
-#info {
-    height: 400px;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-}
-
-#info .info-img {
-    width: 50%;
-    background: url('/img/Media/Lisad/frozen-icicles-blue-ice-cave-600nw-2411902703.jpg') no-repeat center center / cover;
-    min-height: 400px;
-}
-
-#info .info-content {
-    width: 50%;
-    background-color: #333;
-    color: #fff;
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-#info h2 {
-    margin-bottom: 20px;
-    font-size: 2.2rem;
-}
-
-#info p {
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-
-@media (max-width: 768px) {
-    #info {
-        flex-direction: column;
-        height: auto;
-    }
-    #info .info-img,
-    #info .info-content {
-        width: 100%;
-    }
 }
 
 /* Features */
 #features {
-    padding: 100px 0;
+    background: url('/img/Media/Lisad/twin-peaks.png') no-repeat center center / cover;
     background-color: #f8f9fa;
-}
-
-#features .container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-#features .box {
-    flex: 1;
-    padding: 45px 25px;
-    text-align: center;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    transition: all 0.3s ease;
-}
-
-#features .box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-#features .box h3 {
-    margin: 25px 0 15px 0;
-    font-size: 1.65rem;
-}
-
-/* Eri värvid */
-#features .box.bg-dark {
-    background-color: #e0b528bd;
+    min-height: 500px;
+    padding: 100px 0;
     color: #fff;
-}
-
-#features .box.bg-dark h3,
-#features .box.bg-dark p {
-    color: #000000;
-}
-
-#features .box.bg-light {
-    background-color: #f1f1f1;     /* helehall */
-}
-
-#features i {
-    font-size: 3.2rem;
-    color: #aae09d;
-    margin-bottom: 10px;
-}
-
-
-@media (max-width: 992px) {
-    #features .container {
-        flex-direction: column;
-        gap: 25px;
-    }
 }
 
 /* Footer */
@@ -267,112 +124,15 @@ footer {
     padding: 20px;
     background-color: #444;
     color: #fff;
-
 }
 
-/* clear */
-.clear {
-    clear: both;
+/* Contact Form */
+#contact-form {
+
+    background: url('/img/Media/Lisad/giphy\ \(1\).gif') no-repeat center center / cover;
+    padding: 60px 0;
 }
 
-/* about-info */
-
-#about-info {
-    padding: 80px 0;
-    background-color: #f8f9fa;
-}
-
-#about-info .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-#about-info .info-left {
-    flex: 1;
-    min-width: 300px;
-}
-
-#about-info .info-right {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-}
-
-#about-info .info-right img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 75%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-#about-info h2 {
-    margin-bottom: 20px;
-    font-size: 2.2rem;
-}
-
-#about-info p {
-    margin-bottom: 20px;
-    line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-    #about-info .container {
-        flex-direction: column;
-    }
-    
-    #about-info .info-left,
-    #about-info .info-right {
-        flex: none;
-        width: 100%;
-    }
-}
-
-
-/* Testimonials */
-#testimonials {
-    height: 600px;
-    background: url('/img/Media/Lisad/frozen-icicles-blue-ice-cave-600nw-2411902703.jpg') no-repeat center center / cover;
-}
-
-#testimonials h2 {
-    color: #fff;
-    text-align: center;
-}
-
-#testimonials .testimonial {
-    padding: 40px;
-    margin-bottom: 40px;
-    border-radius: 5px;
-    opacity: 0.9;
-}
-
-#testimonials .testimonial img {
-    width: 70px;
-    float: left;
-    margin-right: 20px;
-    border-radius: 50%;
-}
-
-/* Background colors */
-.bg-primary {
-    background-color: #f8c24ed0;
-    color: #333;
-    padding: 25px 30px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.bg-primary p {
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
-
-/* contact */
 #contact-form .form-group {
     margin-bottom: 20px;
 }
@@ -393,19 +153,17 @@ footer {
     height: 200px;
 }
 
-#contact-form .form-group input:focus
+#contact-form .form-group input:focus,
 #contact-form .form-group textarea:focus {
     outline: none;
     border-color: #f7c08a;
 }
 
-#contact-info .box {
-    float: left;
-    width: 33.333%;
-    padding: 50px;
-    text-align: center;
+/* Contact Info */
+.bg-gray {
+    background-color: #747474 !important;
+    color: #ffffff;
 }
-
 
 .bg-dark {
     background-color: #333333 !important;
@@ -417,7 +175,6 @@ footer {
 .bg-dark i {
     color: #ffffff;
 }
-
 
 #contact-info {
     background-color: #222222;
@@ -450,11 +207,16 @@ footer {
 
 #contact-info .box i {
     font-size: 2.8rem;
-    color: #aae09d;
+    color: #eceaea;
     margin-bottom: 15px;
 }
 
 #contact-info .box h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
+}
+
+.badge-title {
+    color: #66fa21; 
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }

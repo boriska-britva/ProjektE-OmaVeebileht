@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5751f2b9e6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/mitmeleheline_hotelli_veebileht/css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="/mitmeleheline_hotelli_veebileht/css/mobile.css">
+    <title>Mark Hardikov Hobi</title>
+
+    <style>
+        .ruudustik-sektsioon {
+            padding: 60px 0 80px;
+            background: url(/img/Media/Lisad/paperbg.jpg) no-repeat center center / cover;
+        }
+
+        .ruudustik-sektsioon .container,
+        .sarjad-sektsioon .container {
+            margin-bottom: 40px;
+            max-width: none;
+            padding: 0 40px;
+        }
+
+        .filmide-ruudustik {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px 25px;
+            padding: 0 40px;
+        }
+
+        .filmi-kaart img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            background-color: #11111100;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .filmi-kaart h3 {
+            margin: 12px 0 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .filmi-kaart p {
+            font-size: 0.88rem;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .sarjad-sektsioon {
+            padding: 60px 0 80px;
+            background: url(/img/Media/Lisad/paperbg.jpg) no-repeat center center / cover;
+        }
+
+        @media (max-width: 768px) { .filmide-ruudustik { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .filmide-ruudustik { grid-template-columns: 1fr; } }
+
+        /* Кнопка наверх */
+        #tagasi-ules {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: background 0.2s ease;
+            z-index: 999;
+        }
+
+        #tagasi-ules:hover { background: #333; }
+        #tagasi-ules.nahtav { display: flex; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <div class="logo"><a href="index.html">markhardikov.ee</a></div>
+                <ul>
+                    <li><a href="index.html" class="nav-btn">Minu kohta</a></li>
+                    <li><a href="sarjad.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="showcase">
+        <div class="container">
+            <div class="showcase-content">
+                <h1>Mark Hardikov</h1>
+                <p>Veebileht minu hobist</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="features">
+        <div class="container">
+            <div style="display:flex; align-items:center; gap:40px;">
+                <div>
+                    <h2 class="badge-title">Minu Kohta</h2>
+                    <p>Ma olen 17 aastane õpilane ja üks minu hobist on filmide ja sarjade vaatamine vabal ajal</p>
+                </div>
+                <img src="/img/Media/Lisad/minufoto.png" alt="Minu foto"
+                     style="width:270px; height:370px; object-fit:cover; border-radius:8%; flex-shrink:0; box-shadow: 8px 24px rgba(0,0,0,0.4);">
+            </div>
+        </div>
+    </section>
+
+    <section class="ruudustik-sektsioon">
+        <div class="container">
+            <h2 class="badge-title">Filmid mida ma soovitan vaadata</h2>
+        </div>
+        <div class="filmide-ruudustik">
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/theguard.jpg" alt="The Guard">
+                <h3>The Guard</h3>
+                <p>Irooniline Iiri krimka, kus kohalik veidrik-politseinik kohtub FBI agendiga.</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/gentelmen.jpg" alt="The Gentlemen">
+                <h3>The Gentlemen</h3>
+                <p>Guy Ritchie stiilis keerdkäikudega lugu Londoni narkoimpeeriumi müügist.</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/bruge.jpg" alt="In Bruges">
+                <h3>In Bruges</h3>
+                <p>Kaks palgamõrtsukast peidavad end Belgias — must huumor ja sügavus.</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/americanbeauty.jpg" alt="American Beauty">
+                <h3>American Beauty</h3>
+                <p>Ameerika eeslinna elu varjatud pool — klassika, mis paneb mõtlema.</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/evildead.jpg" alt="Army of Darkness">
+                <h3>Army of Darkness</h3>
+                <p>Absurdne õudus-komöödia ajarändurist, kes satub keskaega.</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Filmid/manbitesdog.jpg" alt="Man Bites Dog">
+                <h3>Man Bites Dog</h3>
+                <p>Belgia musta huumoriga mokumentaal — šokeeriv ja originaalne.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sarjad-sektsioon">
+        <div class="container">
+            <h2 class="badge-title">Sarjad mida ma soovitan vaadata</h2>
+        </div>
+        <div class="filmide-ruudustik">
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/mentalist.jpg" alt="The Mentalist">
+                <h3>The Mentalist</h3>
+                <p>Huvitav detektiiv Californias, kus peategelane otsib oma abikaasa ja lapse tapjat</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/fargo.jpg" alt="Fargo">
+                <h3>Fargo</h3>
+                <p>Kriminaal saade külmas Ameerikas. Esimene ja kolmas hooaeg on kõige paremad</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/mrrobot.jpg" alt="Mr. Robot">
+                <h3>Mr. Robot</h3>
+                <p>Seriaal kapuutsi pähetõmbamisest ja sigarettide suitsetamisest</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/utopia.jpg" alt="Utopia">
+                <h3>Utopia</h3>
+                <p>Huvitav Suurbritannia saade konspiratsioonist</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/truedetective.jpg" alt="True Detective">
+                <h3>True Detective</h3>
+                <p>Huvitav ja depressiivne detektiiv. Esimene hooaeg oli tore, teised ma skippisin</p>
+            </div>
+            <div class="filmi-kaart">
+                <img src="/img/Media/Sarjad/sopranos.jpg" alt="The Sopranos">
+                <h3>The Sopranos</h3>
+                <p>Mafia klassika.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mark Hardikov Kõik õigused kaitstud.</p>
+    </footer>
+
+    <button id="tagasi-ules" title="Tagasi üles">&#8679;</button>
+
+    <script>
+        const btn = document.getElementById('tagasi-ules');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('nahtav', window.scrollY > 300);
+        });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
